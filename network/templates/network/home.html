@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style type="text/css">
+        ul {
+        list-style-type: none;
+        }
+
+        a {
+        color: #000000;
+        }
+        </style>
+    </head>
+
+    <body>  
+    {% if user.is_authenticated %}
+    {% if feed %}    
+    <p>Welcome, {{ user.username }}.</p>
+    
+    <form action="/accounts/logout/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Log out">
+    </form>
+      
+        <table>
+            {% for share in feed %}
+                <tr><td><a href="{{ share.content.url }}">{{ share.timestamp }} | {{ share.user }} shared {{ share.content }}</a></td>
+                <td>
+                    <form action="" method="post">
+                    <!--input type="text" name="q"-->
+                    {% csrf_token %}
+                    <input type="submit" value="Share">
+                    </form>
+                </td></tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Feed is empty.</p>
+    {% endif %}
+
+{% else %}
+  <h1>Welcome to Kero.</h1>
+  <p>Please <a href="/accounts/login/">log in</a> or <a href="/accounts/register/">register</a>.</p>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+{% extends "network/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Pulse | The Living Web{% endblock %}
+    
+    
+    
+{% block feedcolumn %}
+        
+    {% if content.scaling %}              
+
+        <div class="large-12 columns">
+            <div class="panel">
+                <!-- Feed Entry -->
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h6>{{ content.split_title.0 }}</h6>
+                        <!--{% if content.split_title.1 %}
+                            <h6 style="color: #666;">{{ content.split_title.1 }}</h6>
+                        {% endif %}-->
+                        <h6 style="color: #666;">{{ sharers }}</h6>
+                    </div>
+                    <div class="large-4 columns">
+                        <div style="width:{{ content.scaling.target_width }}px; height:{{ content.scaling.target_height }}px; overflow:hidden;">
+                            <a href="{{ content.url }}">
+                                <img src="{{ content.image }}" 
+                                     style="width: {{ content.scaling.width }}px; 
+                                          height: {{ content.scaling.height }}px; 
+                                          margin: {{ content.scaling.y0 }}px 0 0 {{ content.scaling.x0 }}px;
+                                          max-width: none;
+                                          float: left;"/>
+                            </a>
+                        </div>
+                    </div>
+              
+                    <div class="large-8 columns">
+                        <!--img src="{{ content.image }}" /-->
+
+                        <p style="font-size: 0.85em">{{content.description }}</p>
+                        <!--p><a href="{{ content.url }}">{{ content.url }}</a></p-->
+                        <!--ul class="inline-list">
+                          <li><a href="{{ content.url }}">Comment</a></li>
+                          <li><a href="">Share</a></li>
+                        </ul-->
+                    </div>
+                </div><!--row-->
+            </div><!--panel-->
+        </div>
+
+    {% else %}
+              
+        <div class="large-12 columns">
+            <div class="panel">
+                <h6>{{ content.split_title.0 }}</h6>
+                <!--{% if content.split_title.1 %}
+                    <h6 style="color: #666;">{{ content.split_title.1 }}</h6>
+                {% endif %}-->
+                <h6 style="color: #666;">{{ sharers }}</h6>
+                <p style="font-size: 0.85em">{{content.description }}</p>
+                <a href="{{ content.url }}">
+                    <img src="{{ content.image }}" />
+                </a>
+            </div>
+        </div>
+
+    {% endif %}                
+            
+{% endblock %}
+
+
+  <!-- Ad column --> 
+ 
+ 
+{% block adcolumn %} 
+    <!-- Right Sidebar -->
+    <!-- On small devices this column is hidden -->
+    <aside class="large-2 columns hide-for-small">
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+            <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+            <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+            <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+            <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+            <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+    </aside>
+{% endblock %}
+ 
+ 
+  <!-- Footer -->
+ 
+{% block footer %}
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-5 columns">
+          <p>&copy; Copyright no one at all. Go to town.</p>
+        </div>
+        <div class="large-7 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Section 1</a></li>
+            <li><a href="#">Section 2</a></li>
+            <li><a href="#">Section 3</a></li>
+            <li><a href="#">Section 4</a></li>
+            <li><a href="#">Section 5</a></li>
+            <li><a href="#">Section 6</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+{% endblock %}

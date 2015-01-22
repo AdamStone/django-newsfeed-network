@@ -1,0 +1,216 @@
+ <!DOCTYPE html>
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>{% block title %}{% endblock %}</title>
+
+  <!-- Include CSS Files -->
+  {% load staticfiles %}
+  
+  <link rel="stylesheet" href="{% static 'network/css/normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'network/css/foundation.css' %}">
+  <link rel="stylesheet" href="{% static 'network/css/custom.css' %}">
+
+  <script src="{% static 'network/js/vendor/custom.modernizr.js' %}"></script>
+
+</head>
+
+
+<body>
+    
+<!-- Top Nav Bar -->
+
+<div class="fixed">
+<nav class="top-bar">
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li class="name">
+      <h1><a href="#">
+          {% if user.is_authenticated %}
+                Welcome, {{ user }}.
+            {% else %}
+                Welcome to Pulse
+            {% endif %}
+          </a>
+      </h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="divider"></li>
+      <li class="active"><a href="#">Main Item 1</a></li>
+      <li class="divider"></li>
+      <li><a href="#">Main Item 2</a></li>
+      <li class="divider"></li>
+      <li class="has-dropdown"><a href="#">Main Item 3</a>
+
+        <ul class="dropdown">
+          <li class="has-dropdown"><a href="#">Dropdown Level 1a</a>
+
+            <ul class="dropdown">
+              <li><label>Dropdown Level 2 Label</label></li>
+              <li><a href="#">Dropdown Level 2a</a></li>
+              <li><a href="#">Dropdown Level 2b</a></li>
+              <li class="has-dropdown"><a href="#">Dropdown Level 2c</a>
+
+                <ul class="dropdown">
+                  <li><label>Dropdown Level 3 Label</label></li>
+                  <li><a href="#">Dropdown Level 3a</a></li>
+                  <li><a href="#">Dropdown Level 3b</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Dropdown Level 3c</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown Level 2d</a></li>
+              <li><a href="#">Dropdown Level 2e</a></li>
+              <li><a href="#">Dropdown Level 2f</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Dropdown Level 1b</a></li>
+          <li><a href="#">Dropdown Level 1c</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Dropdown Level 1d</a></li>
+          <li><a href="#">Dropdown Level 1e</a></li>
+          <li><a href="#">Dropdown Level 1f</a></li>
+          <li class="divider"></li>
+          <li><a href="#">See all &rarr;</a></li>
+        </ul>
+      </li>
+      <li class="divider"></li>
+    </ul>
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="divider hide-for-small"></li>
+
+      <li class="divider"></li>
+      <li class="has-form">
+        <form>
+          <div class="row collapse">
+            <div class="small-8 columns">
+              <input type="text">
+            </div>
+            <div class="small-4 columns">
+              <a href="#" class="alert button">Search</a>
+            </div>
+          </div>
+        </form>
+      </li>
+      <li class="divider show-for-small"></li>
+      <li class="has-form">
+        <a class="button" href="/accounts/logout/">Log Out</a>
+      </li>
+      
+      <li class="has-dropdown"><a href="#">Settings</a>
+
+        <ul class="dropdown">
+          <li><label>Dropdown Level 1 Label</label></li>
+          <li class="has-dropdown"><a href="#" class="">Dropdown Level 1a</a>
+
+            <ul class="dropdown">
+              <li><a href="#">Dropdown Level 2a</a></li>
+              <li><a href="#">Dropdown Level 2b</a></li>
+              <li class="has-dropdown"><a href="#">Dropdown Level 2c</a>
+
+                <ul class="dropdown">
+                  <li><a href="#">Dropdown Level 3a</a></li>
+                  <li><a href="#">Dropdown Level 3b</a></li>
+                  <li><a href="#">Dropdown Level 3c</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown Level 2d</a></li>
+              <li><a href="#">Dropdown Level 2e</a></li>
+              <li><a href="#">Dropdown Level 2f</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Dropdown Level 1b</a></li>
+          <li><a href="#">Dropdown Level 1c</a></li>
+          <li class="divider"></li>
+          <li><label>Dropdown Level 1 Label</label></li>
+          <li><a href="#">Dropdown Level 1d</a></li>
+          <li><a href="#">Dropdown Level 1e</a></li>
+          <li><a href="#">Dropdown Level 1f</a></li>
+          <li class="divider"></li>
+          <li><a href="#">See all &rarr;</a></li>
+        </ul>
+      </li>
+      
+    </ul>
+  </section>
+</nav>
+</div>
+
+
+
+  
+  
+  <div class="row" style="padding-top:60px">
+    <!-- main full page row -->
+    
+      <!-- Share box -->
+        <div class="panel">
+        <form action="" method="post">
+            <input type="text" name="q">
+            {% csrf_token %}
+            <input type="submit" value="Share">
+        </form>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Shuffle" name="shuffle">
+        </form>
+        </div>    
+        
+        
+{% for column in columns %}
+    
+    <div class="large-5 columns">
+
+        <div class="row">
+
+        {% for content, sharers in column %}
+    
+    {% block feedcolumn %}{% endblock %}
+    
+            {% endfor %} 
+
+        </div>
+    </div>
+ 
+{% endfor %}    
+    
+    
+    {% block adcolumn %}{% endblock %}
+
+  </div>
+ 
+  <!-- Footer -->
+ 
+  <footer class="row">
+
+    {% block footer %}{% endblock %}
+
+  </footer>
+  
+<script>
+  document.write('<script src={% static "network/js/vendor" %}' +
+  ('__proto__' in {} ? 'zepto' : 'jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="js/foundation.min.js"></script>
+  <script src="{% static 'network/js/foundation.min.js' %}"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+</body>
+</html>

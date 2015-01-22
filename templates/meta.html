@@ -1,0 +1,9 @@
+{% if items %}
+    <table>
+    {% for keyval in items %}
+        <tr><td>{{ keyval.0 }}</td><td>{{ keyval.1 }}</td></tr>
+    {% endfor %}
+    </table>
+{% else %}
+    No data.
+{% endif %}

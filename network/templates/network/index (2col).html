@@ -1,0 +1,403 @@
+ <!DOCTYPE html>
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Pulse - The Living Web</title>
+
+  <!-- Included CSS Files -->
+  {% load staticfiles %}
+  
+  <link rel="stylesheet" href="{% static 'network/css/normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'network/css/foundation.css' %}">
+  <link rel="stylesheet" href="{% static 'network/css/custom.css' %}">
+
+  <script src="{% static 'network/js/vendor/custom.modernizr.js' %}"></script>
+
+</head>
+
+
+<body>
+    
+
+
+
+
+
+
+<div class="fixed">
+<nav class="top-bar">
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li class="name">
+      <h1><a href="#">Top Bar Title </a></h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="divider"></li>
+      <li class="active"><a href="#">Main Item 1</a></li>
+      <li class="divider"></li>
+      <li><a href="#">Main Item 2</a></li>
+      <li class="divider"></li>
+      <li class="has-dropdown"><a href="#">Main Item 3</a>
+
+        <ul class="dropdown">
+          <li class="has-dropdown"><a href="#">Dropdown Level 1a</a>
+
+            <ul class="dropdown">
+              <li><label>Dropdown Level 2 Label</label></li>
+              <li><a href="#">Dropdown Level 2a</a></li>
+              <li><a href="#">Dropdown Level 2b</a></li>
+              <li class="has-dropdown"><a href="#">Dropdown Level 2c</a>
+
+                <ul class="dropdown">
+                  <li><label>Dropdown Level 3 Label</label></li>
+                  <li><a href="#">Dropdown Level 3a</a></li>
+                  <li><a href="#">Dropdown Level 3b</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Dropdown Level 3c</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown Level 2d</a></li>
+              <li><a href="#">Dropdown Level 2e</a></li>
+              <li><a href="#">Dropdown Level 2f</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Dropdown Level 1b</a></li>
+          <li><a href="#">Dropdown Level 1c</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Dropdown Level 1d</a></li>
+          <li><a href="#">Dropdown Level 1e</a></li>
+          <li><a href="#">Dropdown Level 1f</a></li>
+          <li class="divider"></li>
+          <li><a href="#">See all &rarr;</a></li>
+        </ul>
+      </li>
+      <li class="divider"></li>
+    </ul>
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="divider hide-for-small"></li>
+
+      <li class="divider"></li>
+      <li class="has-form">
+        <form>
+          <div class="row collapse">
+            <div class="small-8 columns">
+              <input type="text">
+            </div>
+            <div class="small-4 columns">
+              <a href="#" class="alert button">Search</a>
+            </div>
+          </div>
+        </form>
+      </li>
+      <li class="divider show-for-small"></li>
+      <li class="has-form">
+        <a class="button" href="/accounts/logout/">Log Out</a>
+      </li>
+      
+      <li class="has-dropdown"><a href="#">Settings</a>
+
+        <ul class="dropdown">
+          <li><label>Dropdown Level 1 Label</label></li>
+          <li class="has-dropdown"><a href="#" class="">Dropdown Level 1a</a>
+
+            <ul class="dropdown">
+              <li><a href="#">Dropdown Level 2a</a></li>
+              <li><a href="#">Dropdown Level 2b</a></li>
+              <li class="has-dropdown"><a href="#">Dropdown Level 2c</a>
+
+                <ul class="dropdown">
+                  <li><a href="#">Dropdown Level 3a</a></li>
+                  <li><a href="#">Dropdown Level 3b</a></li>
+                  <li><a href="#">Dropdown Level 3c</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown Level 2d</a></li>
+              <li><a href="#">Dropdown Level 2e</a></li>
+              <li><a href="#">Dropdown Level 2f</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Dropdown Level 1b</a></li>
+          <li><a href="#">Dropdown Level 1c</a></li>
+          <li class="divider"></li>
+          <li><label>Dropdown Level 1 Label</label></li>
+          <li><a href="#">Dropdown Level 1d</a></li>
+          <li><a href="#">Dropdown Level 1e</a></li>
+          <li><a href="#">Dropdown Level 1f</a></li>
+          <li class="divider"></li>
+          <li><a href="#">See all &rarr;</a></li>
+        </ul>
+      </li>
+      
+    </ul>
+  </section>
+</nav>
+</div>
+
+
+
+
+
+
+ 
+ <!-- Header and Nav -->
+ 
+  <!--div class="row">
+    <div class="large-12 columns">
+      <div class="panel">
+        <div class="row">
+          <div class="large-9 columns">
+            {% if user.is_authenticated %}
+                <h3>Welcome, {{ user }}.</h3>
+            {% else %}
+                <h3>Welcome to Kero</h3>
+            {% endif %}
+          </div>
+            {% if user.is_authenticated %}
+                <form action="/accounts/logout/" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Log out">
+                </form>
+            {% endif %}
+          <div class="">
+            
+          </div>
+        
+        </div>
+      </div>
+    </div>    
+  </div><!--row-->
+  <!-- End Header and Nav -->
+  
+  
+  <div class="row" style="padding-top:60px">
+    
+    <!-- MAIN FEED -->
+    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+    <div class="large-5 columns">
+        
+            <!-- Share box -->
+        <div class="panel">
+        <form action="" method="post">
+            <input type="text" name="q">
+            {% csrf_token %}
+            <input type="submit" value="Share">
+        </form>
+        </div>
+
+        <div class="row">
+        <ul class="inline-list">
+        {% for content in left %}
+        
+              {% if content.scaling %}              
+              
+        <li>
+        <div class="large-12 columns">
+        <div class="panel">
+          <!-- Feed Entry -->
+          <div class="row">
+              
+            <div class="large-12 columns">
+                <h6>{{ content.split_title.0 }}</h6>
+                    {% if content.split_title.1 %}
+                    <h6 style="color: #666;">{{ content.split_title.1 }}</h6>
+                    {% endif %}
+            </div>
+
+              <div class="large-4 columns">
+                <div style="width:{{ content.scaling.target_width }}px; height:{{ content.scaling.target_height }}px; overflow:hidden;">
+                  <a href="{{ content.url }}">
+                  <img src="{{ content.image }}" 
+                       style="width: {{ content.scaling.width }}px; 
+                              height: {{ content.scaling.height }}px; 
+                              margin: {{ content.scaling.y0 }}px 0 0 {{ content.scaling.x0 }}px;
+                              max-width: none;
+                              float: left;"/></a>
+                </div>
+              </div>
+              
+              <div class="large-8 columns">
+                <!--img src="{{ content.image }}" /-->
+
+                <p style="font-size: 0.85em">{{content.description }}</p>
+                <!--p><a href="{{ content.url }}">{{ content.url }}</a></p-->
+                <!--ul class="inline-list">
+                  <li><a href="{{ content.url }}">Comment</a></li>
+                  <li><a href="">Share</a></li>
+                </ul-->
+              </div>
+          </div><!--row-->
+        </div><!--panel-->
+        </div>
+        </li>  
+              
+                
+              {% else %}
+              
+                <li>
+              <div class="large-12 columns">
+                <div class="panel">
+                  <h6>{{ content.split_title.0 }}</h6>
+                        {% if content.split_title.1 %}
+                        <h6 style="color: #666;">{{ content.split_title.1 }}</h6>
+                        {% endif %}
+                  <p style="font-size: 0.85em">{{content.description }}</p>
+                  <a href="{{ content.url }}">
+                 <img src="{{ content.image }}" /></a>
+                </div>
+              </div>
+                </li>
+              
+              {% endif %}                
+            
+            {% endfor %} 
+        </ul>
+        </div>
+    </div>
+ 
+ 
+    <div class="large-5 columns">
+        
+        <div class="row">
+        <ul class="inline-list">
+        {% for content in right %}
+        
+
+    {% if content.scaling %}
+              
+              
+        <li>
+        <div class="large-12 columns">
+        <div class="panel">
+          <!-- Feed Entry -->
+          <div class="row">
+              
+            <div class="large-12 columns">
+                <h5>{{ content.split_title.0 }}</h5>
+                    {% if content.split_title.1 %}
+                    <h6 style="color: #666;">{{ content.split_title.1 }}</h6>
+                    {% endif %}
+            </div>              
+
+              <div class="large-4 columns">
+                <div style="width:{{ content.scaling.target_width }}px; height:{{ content.scaling.target_height }}px; overflow:hidden;">
+                  <a href="{{ content.url }}">
+                  <img src="{{ content.image }}" 
+                       style="width: {{ content.scaling.width }}px; 
+                              height: {{ content.scaling.height }}px; 
+                              margin: {{ content.scaling.y0 }}px 0 0 {{ content.scaling.x0 }}px;
+                              max-width: none;"/></a>
+                </div>
+              </div>
+              
+              <div class="large-8 columns">
+                <!--img src="{{ content.image }}" /-->
+
+                <p style="font-size: 0.85em">{{content.description }}</p>
+                <!--p><a href="{{ content.url }}">{{ content.url }}</a></p-->
+                <!--ul class="inline-list">
+                  <li><a href="{{ content.url }}">Comment</a></li>
+                  <li><a href="">Share</a></li>
+                </ul-->
+              </div>
+          </div><!--row-->
+        </div><!--panel-->
+        </div>
+        </li>    
+        
+        
+    {% else %}
+        
+        <li>
+    <div class="large-12 columns">
+        <div class="panel">
+        <h5>{{ content.split_title.0 }}</h5>
+                {% if content.split_title.1 %}
+                <h6 style="color: #666;">{{ content.split_title.1 }}</h6>
+                {% endif %}
+        <p style="font-size: 0.85em">{{content.description }}</p>
+        <a href="{{ content.url }}">
+        <img src="{{ content.image }}" /></a>
+        </div>
+    </div>
+        </li>
+        
+        
+
+        {% endif %}
+            {% endfor %} 
+        </ul>
+        </div>
+    </div>
+ 
+ 
+ 
+ 
+    <!-- Right Sidebar -->
+    <!-- On small devices this column is hidden -->
+    <aside class="large-2 columns hide-for-small">
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+            <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+            <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+            <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+            <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+            <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+      <p><img src="{% static 'network/img/300x440&text=[ad].gif' %}" /></p>
+    </aside>
+ 
+  </div>
+ 
+ 
+  <!-- Footer -->
+ 
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-5 columns">
+          <p>&copy; Copyright no one at all. Go to town.</p>
+        </div>
+        <div class="large-7 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Section 1</a></li>
+            <li><a href="#">Section 2</a></li>
+            <li><a href="#">Section 3</a></li>
+            <li><a href="#">Section 4</a></li>
+            <li><a href="#">Section 5</a></li>
+            <li><a href="#">Section 6</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+<script>
+  document.write('<script src={% static "network/js/vendor" %}' +
+  ('__proto__' in {} ? 'zepto' : 'jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="js/foundation.min.js"></script>
+  <script src="{% static 'network/js/foundation.min.js' %}"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+</body>
+</html>
